@@ -14,6 +14,7 @@ public class Empreitada extends Funcionario{
 
 	public Empreitada(String nome, String cpf, String departamento, double salario, double valorEmpreitada,
 			String localConserto) {
+		
 		super(nome, cpf, departamento, salario);
 		this.valorEmpreitada = valorEmpreitada;
 		this.localConserto = localConserto;
@@ -21,9 +22,8 @@ public class Empreitada extends Funcionario{
 	
 
 	@Override
-	public void calcularSalario() {
-		// TODO Auto-generated method stub
-		
+	public double calcularSalario() {
+		return this.salario = getValorEmpreitada();
 	}
 
 	public double getValorEmpreitada() {
@@ -53,5 +53,20 @@ public class Empreitada extends Funcionario{
 	}
 	
 	
+	public void addHolorite(Holorite obj) {
+		holorite.add(obj);
+	}
+	
+	public void removeHolorite(Holorite obj) {
+		holorite.remove(obj);
+	}
+	
+	public int countHolorite() {
+		return holorite.size();
+	}
+	
+	public Holorite getHolorite(int i) {
+		return holorite.get(i);
+	}
 	
 }

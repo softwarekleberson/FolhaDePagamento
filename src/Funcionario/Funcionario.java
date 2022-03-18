@@ -11,7 +11,7 @@ public abstract class Funcionario extends Pessoa {
 		this.salario = salario;
 	}
 	
-	public abstract void calcularSalario();
+	public abstract double calcularSalario();	
 
 	public String getDepartamento() {
 		return departamento;

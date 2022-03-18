@@ -15,11 +15,11 @@ public class Cargo extends Mensalista {
 	}
 
 	@Override
-	public void calcularSalario() {
-		// TODO Auto-generated method stub
-		
+	public double calcularSalario() {
+		return getSalario();
 	}
-
+	
+	
 	public List<Holorite> getHolorite() {
 		return holorite;
 	}
@@ -28,6 +28,21 @@ public class Cargo extends Mensalista {
 		this.holorite = holorite;
 	}
 	
+	public void addHolorite(Holorite obj) {
+		holorite.add(obj);
+	}
+	
+	public void removeHolorite(Holorite obj) {
+		holorite.remove(obj);
+	}
+	
+	public int countHolorite() {
+		return holorite.size();
+	}
+	
+	public Holorite getHolorite(int i) {
+		return holorite.get(i);
+	}
 	
 	
 }
