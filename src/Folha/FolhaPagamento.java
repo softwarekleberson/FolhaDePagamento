@@ -1,4 +1,4 @@
-package Holorite;
+package Folha;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,22 +7,54 @@ import Trabalho.Cargo;
 import Trabalho.Empreitada;
 import Trabalho.Horista;
 
-public class Holorite {	
+public class FolhaPagamento {	
 	
 	private List<Horista> horista = new ArrayList<>();
 	private List<Cargo> cargo = new ArrayList<>();
 	private List <Empreitada> empreitada = new ArrayList<>();
-
-	public void informacoes() {
+	
+	public String informacoesCargo() {
+		
+		String folha = "Folha de pagamento ";
+		for (Cargo cargos : cargo) {
+			
+			folha += "\n\n";
+			folha += String.format("%14s  %30s  %20s  %30s  R$%.2f\n", cargos.getCpf(), cargos.getNome(), 
+					cargos.getDepartamento(), cargos.getNivelcargo(), cargos.calcularSalario());
+		}
+		folha += "\n\n\n\n\n";
+		return folha;
 		
 	}
-
-	public Holorite(List<Horista> horista, List<Cargo> cargo, List<Empreitada> empreitada) {
-		super();
-		this.horista = horista;
-		this.cargo = cargo;
-		this.empreitada = empreitada;
+	
+	public String informacoesHorista() {
+		
+		String folha = "Folha de pagamento ";
+		for (Horista horistas : horista) {
+			
+			folha += "\n\n";
+			folha += String.format("%14s  %30s  %20s  R$%.2f\n", horistas.getCpf(), horistas.getNome(), horistas.getDepartamento(),
+					horistas.calcularSalario());
+		}
+		folha += "\n\n\n\n";
+		return folha;
+		
 	}
+	
+	public String informacoesEmpreentada() {
+		
+		String folha = "Folha de pagamento ";
+		for (Empreitada empreintadas : empreitada) {
+			
+			folha += "\n\n";
+			folha += String.format("%14s   %30s   %20s  %20s  R$%.3f\n", empreintadas.getCpf(), empreintadas.getNome(), empreintadas.getDepartamento(),
+					empreintadas.getLocalConserto(), empreintadas.calcularSalario());
+			
+		}
+		folha += "\n\n\n\n";
+		return folha;
+	}
+	
 
 	public List<Horista> getHorista() {
 		return horista;
@@ -48,8 +80,9 @@ public class Holorite {
 		this.empreitada = empreitada;
 	}
 	
-	public void addHorista(Horista obj) {
-		horista.add(obj);
+	public void addHorista(Horista horistas) {
+		horista.add(horistas);	
+		
 	}
 	
 	public void removeHorista(Horista obj){
@@ -95,6 +128,5 @@ public class Holorite {
 	public Empreitada getEmpreitada(int i){
 		return empreitada.get(i);
 	}
-	
-	
+
 }
